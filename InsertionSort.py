@@ -13,11 +13,12 @@ def InsertionSort(array):
         key = array[step] #we make the second element key
         j= step -1 #j is used as an index to iterate over the sorted part of the array, moving backward
         while j>=0 and key <array[j]: #this is actually comparing the ones to its right at the first iteration and as it goes it compares to the left element and it looks for the correct position to reach in
-            array[j+1]=array[j]
-            j=j-1
+            array[j+1]=array[j] #if the element is greater than the key, we move it to the right
+            j=j-1  
         array[j+1]=key
 
-Array = [7,15,13,0,-2]
+Array = [7,15,13,0,-2] 
 InsertionSort(Array)
 print("Sorted array in ascending order: ")
 print(Array)
+
