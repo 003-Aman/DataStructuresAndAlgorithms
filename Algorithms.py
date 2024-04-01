@@ -23,5 +23,30 @@ minimum spanning tree is a subgraph that is a tree and has as many nodes as poss
 '''
 #PRIM'S ALGORITHM
 '''
-prims algo find the minimum spanning tree from a graph
+prims algo finds the minimum spanning tree from a graph
 '''
+#Strongly Connected Components(scc)
+'''
+strongly connected components is a set of nodes in a graph that are reachable from each other
+it is a cycle but every node is reachable by following a path, if not directly, through a node
+
+'''
+#KOSARAJU'S ALGORITHM
+'''
+we use dfs to find the strongly connected components
+specifically reverse dfs
+
+steps:
+get nodes in stack(topological sort)
+transpose the graph
+do dfs accorrding to stack nodes on the transpose graph
+
+
+
+'''
+#Bridge in graphs
+'''
+bridge is an edge whose deletion increases the graph's number of connected components
+
+'''
+#Tarjan's algorithm
