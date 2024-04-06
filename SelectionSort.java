@@ -15,7 +15,7 @@ public class SelectionSort {
             int smallest =i;//for each iteration the index index is smallest
             for(int j=i+1;j<arr.length;j++){
                 if(arr[smallest]>arr[j]){
-                    smallest =j;
+                    smallest =j;//pass on the smallest variable
                 }
             }
             int temp = arr[smallest];
