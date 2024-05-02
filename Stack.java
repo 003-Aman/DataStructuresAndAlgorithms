@@ -3,56 +3,74 @@ class Stack {
     private int top;
     private int capacity;
 
-
-    Stack(int capacity){//this is a constructor which has to be the same name as the class
-        arr = new int[capacity];
+    // Constructor to initialize the stack
+    Stack(int size) {
+        if (size <= 0) {
+            throw new IllegalArgumentException("Stack size must be positive");
+        }
+        arr = new int[size];
+        capacity = size;
         top = -1;
     }
 
-    public void push(int x){
-        if(isFull()){
-            System.out.println("Overflow\nProgram Terminated\n");
-            System.exit(1);//what is thhis?
+    // Add elements into stack
+    public void push(int x) {
+        if (isFull()) {
+            throw new IllegalStateException("Overflow: Stack is full, cannot add more elements");
         }
-        System.out.println("Inserting "+x);
-        arr[++top]=x;//inserted x on the index by increasing by 1
+        System.out.println("Inserting " + x);
+        arr[++top] = x;
     }
 
-    public int pop(){
-        if(isEmpty()){
-            System.out.println("The Stack is empty");
-            System.exit(1);
+    // Remove element from stack
+    public int pop() {
+        if (isEmpty()) {
+            throw new IllegalStateException("Underflow: Stack is empty, cannot remove elements");
         }
         return arr[top--];
     }
-    public int size(){
-        return top+1;
+
+    // Utility function to return the size of the stack
+    public int size() {
+        return top + 1;
     }
-    public Boolean isEmpty(){
+
+    // Check if the stack is empty
+    public boolean isEmpty() {
         return top == -1;
     }
-    public Boolean isFull(){
-        return top == capacity -1;
+
+    // Check if the stack is full
+    public boolean isFull() {
+        return top == capacity - 1;
     }
-    public void printStack(){
-        for(int i =0; i<= top; i++){
+
+    // Print all elements in the stack
+    public void printStack() {
+        for (int i = 0; i <= top; i++) {
             System.out.println(arr[i]);
         }
     }
 
-    public static void main(String[] args){
-        Stack stack = new Stack(5); //object was created from the class stack
+    // Main method to test the stack operations
+    public static void main(String[] args) {
+        Stack stack = new Stack(5);
 
-        stack.push(1);
-        stack.push(2);
-        stack.push(3);
-        stack.push(4);
-        
-        stack.pop();
+        try {
+            stack.push(1);
+            stack.push(2);
+            stack.push(3);
+            stack.push(4);
 
-        System.out.println("\nAfter popping out");
-        stack.printStack();
+            stack.pop();
+            System.out.println("\nAfter popping out");
+            stack.printStack();
 
+            // Uncomment below lines to test the exception handling.
+            // stack.push(5);
+            // stack.push(6); // This should cause an exception
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
     }
-
 }
