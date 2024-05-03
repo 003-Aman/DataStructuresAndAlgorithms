@@ -53,7 +53,7 @@ public class Queue {
         System.out.println("Deleted -> " + element);
         return (element);
       }
-    }
+    }}
   
     void display() {
       /* Function to display elements of Queue */
